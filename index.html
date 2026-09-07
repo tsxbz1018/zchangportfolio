@@ -43,6 +43,14 @@
   .vcard .tags{display:flex;flex-wrap:wrap;gap:6px;}
   .vcard .tag{font-size:11px;color:#7fc4e8;background:rgba(127,196,232,.12);border-radius:999px;padding:2px 10px;letter-spacing:.3px;}
   .vcard .d{font-size:12.5px;color:#98a1ad;}
+  .shots{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;}
+  .shot{background:#161c24;border:1px solid #232b36;border-radius:14px;overflow:hidden;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;}
+  .shot:hover{transform:translateY(-5px);border-color:rgba(127,196,232,.45);box-shadow:0 10px 28px rgba(0,0,0,.35);}
+  .shot img{width:100%;display:block;background:#0d1117;}
+  .shot.w{flex:1 1 440px;max-width:560px;}
+  .shot.v{flex:1 1 270px;max-width:330px;}
+  .shot .t{padding:10px 14px 12px;font-size:12px;color:#98a1ad;line-height:1.5;}
+  .shot .t b{display:block;font-size:13.5px;color:#e8eaed;margin-bottom:2px;}
   .vcard.h16{flex:1 1 520px;max-width:640px;}
   .vcard.h16 video{aspect-ratio:16/9;}
   .vcard.v9{flex:1 1 260px;max-width:310px;}
@@ -145,16 +153,8 @@
     </div>
 
     <div class="group">
-      <div class="gt">节奏卡点 · 燃向混剪<span>V 1-3</span></div>
+      <div class="gt">节奏卡点 · 快剪混剪<span>V 1-3</span></div>
       <div class="videos">
-        <div class="vcard h16">
-          <video controls preload="metadata" playsinline src="videos/帅是一种感觉.mp4"></video>
-          <div class="info">
-            <div class="t">《帅是一种感觉》</div>
-            <div class="tags"><span class="tag">卡点混剪</span><span class="tag">变速对齐</span><span class="tag">燃向</span></div>
-            <div class="d">重音级卡点与变速切镜，前 3 秒钩子式开篇，情绪逐级推高。</div>
-          </div>
-        </div>
         <div class="vcard v34">
           <video controls preload="metadata" playsinline src="videos/satisfaction.mp4"></video>
           <div class="info">
@@ -171,12 +171,28 @@
             <div class="d">多素材快剪，匹配剪辑与动作衔接，密度高但不失节奏呼吸感。</div>
           </div>
         </div>
+        <div class="vcard h16">
+          <video controls preload="metadata" playsinline src="videos/眼睛条.mp4"></video>
+          <div class="info">
+            <div class="t">《眼睛条》</div>
+            <div class="tags"><span class="tag">快剪实验</span><span class="tag">视觉节奏</span></div>
+            <div class="d">短平快剪辑实验，镜头切换频率与节拍严格对齐。</div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="group">
-      <div class="gt">舞台实录 · 情绪叙事<span>V 4-7</span></div>
+      <div class="gt">舞台实录 · 燃向与情绪<span>V 4-7</span></div>
       <div class="videos">
+        <div class="vcard h16">
+          <video controls preload="metadata" playsinline src="videos/帅是一种感觉.mp4"></video>
+          <div class="info">
+            <div class="t">《帅是一种感觉》</div>
+            <div class="tags"><span class="tag">卡点混剪</span><span class="tag">变速对齐</span><span class="tag">燃向</span></div>
+            <div class="d">重音级卡点与变速切镜，前 3 秒钩子式开篇，情绪逐级推高。</div>
+          </div>
+        </div>
         <div class="vcard v9">
           <video controls preload="metadata" playsinline src="videos/babydontcry.mp4"></video>
           <div class="info">
@@ -199,14 +215,6 @@
             <div class="t">《神像》</div>
             <div class="tags"><span class="tag">氛围向</span><span class="tag">特效包装</span><span class="tag">光影</span></div>
             <div class="d">光影质感营造氛围，叠加特效包装强化视觉冲击。</div>
-          </div>
-        </div>
-        <div class="vcard h16">
-          <video controls preload="metadata" playsinline src="videos/眼睛条.mp4"></video>
-          <div class="info">
-            <div class="t">《眼睛条》</div>
-            <div class="tags"><span class="tag">快剪实验</span><span class="tag">视觉节奏</span></div>
-            <div class="d">短平快剪辑实验，镜头切换频率与节拍严格对齐。</div>
           </div>
         </div>
       </div>
@@ -242,7 +250,29 @@
 
     <!-- 运营成果 -->
     <div class="sec">
-      <span class="no">03 · PROOF</span>
+      <span class="no">03 · PHOTOGRAPHY</span>
+      <h2>摄影作品</h2>
+      <div class="desc">3 年人像 / 舞台实拍经验，独立完成布光、构图与后期；人像、夜景、花海、舞台多场景实拍，与剪辑能力形成拍剪一体闭环。</div>
+      <div class="shots">
+        <div class="shot w"><img src="photos/photo-1.jpg" alt="春日野餐户外人像写真"><div class="t"><b>春日野餐 · 户外人像</b>外景布光与道具场景设计</div></div>
+        <div class="shot w"><img src="photos/photo-2.jpg" alt="生日派对主题人像写真"><div class="t"><b>生日派对 · 主题写真</b>游乐园实景与情绪抓拍</div></div>
+        <div class="shot w"><img src="photos/photo-3.jpg" alt="校园清新人像写真"><div class="t"><b>校园清新 · 人像写真</b>树影光影与环境融合</div></div>
+        <div class="shot v"><img src="photos/photo-5.jpg" alt="JK制服公园人像"><div class="t"><b>JK 制服 · 公园人像</b>制服主题 · 动感构图</div></div>
+        <div class="shot v"><img src="photos/photo-6.jpg" alt="甜点时刻室内人像"><div class="t"><b>甜点时刻 · 室内人像</b>室内灯光与细节特写</div></div>
+        <div class="shot v"><img src="photos/photo-7.jpg" alt="郁金香花田春日人像"><div class="t"><b>郁金香花田 · 春日人像</b>花海色彩与人物融合</div></div>
+        <div class="shot w"><img src="photos/photo-4.jpg" alt="花树与雪双场景人像写真"><div class="t"><b>花树与雪 · 双场景写真</b>花季与雪景双主题拍摄</div></div>
+        <div class="shot v"><img src="photos/photo-8.jpg" alt="古建夜景氛围人像"><div class="t"><b>古建夜景 · 氛围人像</b>夜景人像 · 暖光氛围</div></div>
+        <div class="shot v"><img src="photos/photo-9.jpg" alt="城市夜景地标人像"><div class="t"><b>城市夜景 · 地标人像</b>地标夜景 · 城市光斑</div></div>
+        <div class="shot v"><img src="photos/photo-10.jpg" alt="鸢尾花海户外人像"><div class="t"><b>鸢尾花海 · 户外人像</b>花田取景与低机位构图</div></div>
+        <div class="shot v"><img src="photos/photo-11.jpg" alt="舞台特写双造型"><div class="t"><b>舞台特写 · 双造型</b>演唱会现场 · 双机位造型记录 · 作品由本人拍摄</div></div>
+        <div class="shot v"><img src="photos/photo-12.jpg" alt="舞台实录现场抓拍"><div class="t"><b>舞台实录 · 现场抓拍</b>演唱会现场 · 动态捕捉 · 作品由本人拍摄</div></div>
+        <div class="shot v"><img src="photos/photo-13.jpg" alt="舞台实录舞台瞬间"><div class="t"><b>舞台实录 · 舞台瞬间</b>现场光影 · 氛围抓拍 · 作品由本人拍摄</div></div>
+        <div class="shot v"><img src="photos/photo-14.jpg" alt="演唱会舞台四宫格"><div class="t"><b>演唱会舞台 · 四宫格</b>现场舞台 · 多角度记录 · 作品由本人拍摄</div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="no">04 · PROOF</span>
       <h2>运营成果 · 数据验证</h2>
       <div class="desc">用数据说话：以封面点击率、完播率、跳出率、吸粉量为依据，反哺选题与剪辑。</div>
     </div>
@@ -260,7 +290,7 @@
 
     <!-- 能力清单 -->
     <div class="sec">
-      <span class="no">04 · SKILLS</span>
+      <span class="no">05 · SKILLS</span>
       <h2>能力清单</h2>
     </div>
     <div class="skills">
@@ -284,7 +314,7 @@
 
     <!-- 关于我 -->
     <div class="sec">
-      <span class="no">05 · ABOUT</span>
+      <span class="no">06 · ABOUT</span>
       <h2>关于我</h2>
     </div>
     <div class="about">
