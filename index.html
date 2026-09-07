@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张畅 · 短视频剪辑作品集（线上版）</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",Arial,sans-serif;background:#0f131a;color:#e8eaed;font-size:15px;line-height:1.75;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  /* Hero */
+  .hero{padding:72px 0 40px;text-align:center;background:radial-gradient(1000px 380px at 50% -120px,rgba(127,196,232,.14),transparent 70%);}
+  .hero .name{font-size:40px;font-weight:800;letter-spacing:6px;}
+  .hero .role{margin-top:12px;font-size:17px;font-weight:600;color:#7fc4e8;letter-spacing:1px;}
+  .hero .slogan{margin-top:14px;font-size:14.5px;color:#98a1ad;max-width:680px;margin-left:auto;margin-right:auto;}
+  .hero .contact{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;margin-top:22px;font-size:14px;color:#c6ccd4;}
+  .btn{display:inline-block;margin-top:22px;background:#7fc4e8;color:#0f131a;font-weight:700;border-radius:999px;padding:11px 30px;font-size:14px;text-decoration:none;letter-spacing:.5px;}
+  .btn.ghost{background:transparent;color:#e8eaed;border:1px solid #38424f;margin-left:10px;font-weight:500;}
+  .btn.ghost:hover{border-color:#7fc4e8;color:#7fc4e8;}
+  .hero .search{margin-top:10px;font-size:12.5px;color:#6d7682;}
+  /* 数据条 */
+  .stats{display:flex;flex-wrap:wrap;gap:12px;margin:36px 0 8px;}
+  .stat{flex:1 1 150px;min-width:0;background:#161c24;border:1px solid #232b36;border-radius:14px;padding:18px 12px;text-align:center;}
+  .stat .n{font-size:26px;font-weight:800;color:#7fc4e8;letter-spacing:.5px;}
+  .stat .n small{font-size:14px;font-weight:600;}
+  .stat .l{font-size:12px;color:#98a1ad;margin-top:5px;}
+  /* 分区标题 */
+  .sec{margin:64px 0 22px;}
+  .sec .no{display:inline-block;font-size:12px;font-weight:700;color:#f2b45b;letter-spacing:3px;border:1px solid rgba(242,180,91,.4);border-radius:999px;padding:3px 14px;margin-bottom:10px;}
+  .sec h2{font-size:24px;font-weight:800;letter-spacing:1px;}
+  .sec .desc{font-size:13.5px;color:#98a1ad;margin-top:8px;max-width:780px;}
+  /* 视频分组 */
+  .group{margin-bottom:40px;}
+  .group .gt{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;color:#e8eaed;margin:8px 0 14px;}
+  .group .gt::before{content:"";width:18px;height:3px;background:#f2b45b;border-radius:2px;}
+  .group .gt span{font-size:12px;font-weight:500;color:#98a1ad;letter-spacing:1px;}
+  .videos{display:flex;flex-wrap:wrap;gap:16px;}
+  .vcard{flex:1 1 330px;min-width:0;background:#161c24;border:1px solid #232b36;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;}
+  .vcard video{width:100%;display:block;background:#000;}
+  .vcard .info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .vcard .t{font-size:15px;font-weight:700;}
+  .vcard .tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .vcard .tag{font-size:11px;color:#7fc4e8;background:rgba(127,196,232,.12);border-radius:999px;padding:2px 10px;letter-spacing:.3px;}
+  .vcard .d{font-size:12.5px;color:#98a1ad;}
+  .vcard.wide{flex:1 1 100%;}
+  /* 运营成果 */
+  .proof{background:#161c24;border:1px solid #232b36;border-radius:18px;padding:26px 28px;margin-top:8px;}
+  .proof .pt{font-size:16px;font-weight:800;color:#f2b45b;margin-bottom:10px;}
+  .proof p{font-size:14px;color:#c6ccd4;margin-bottom:8px;}
+  .proof p b{color:#e8eaed;}
+  .proof .kv{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:13.5px;color:#98a1ad;margin-top:6px;}
+  .proof .kv b{color:#7fc4e8;}
+  .shots{margin-top:18px;}
+  .shots figure{background:#0f131a;border:1px solid #232b36;border-radius:14px;overflow:hidden;}
+  .shots img{width:100%;display:block;}
+  .shots figcaption{font-size:12px;color:#98a1ad;padding:10px 14px;text-align:center;}
+  /* 技能 */
+  .skills{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;}
+  .skill{flex:1 1 230px;min-width:0;background:#161c24;border:1px solid #232b36;border-radius:14px;padding:16px 18px;}
+  .skill .st{font-size:14px;font-weight:700;color:#7fc4e8;margin-bottom:6px;}
+  .skill .sd{font-size:12.5px;color:#98a1ad;}
+  /* 关于我 */
+  .about{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;}
+  .about .main{flex:1 1 100%;background:#161c24;border:1px solid #232b36;border-radius:16px;padding:22px 26px;}
+  .about .main p{font-size:14px;color:#c6ccd4;}
+  .about .main p b{color:#e8eaed;}
+  .abox{flex:1 1 300px;min-width:0;background:#161c24;border:1px solid #232b36;border-radius:16px;padding:18px 22px;}
+  .abox .at{font-size:13px;font-weight:700;color:#f2b45b;letter-spacing:1px;margin-bottom:10px;}
+  .abox .row{display:flex;flex-wrap:wrap;justify-content:space-between;font-size:13.5px;margin:8px 0;color:#c6ccd4;}
+  .abox .row b{color:#e8eaed;font-weight:600;}
+  .abox .note{font-size:12.5px;color:#98a1ad;margin-top:4px;}
+  .abox ul{list-style:none;}
+  .abox li{font-size:13.5px;color:#c6ccd4;margin:6px 0;padding-left:16px;position:relative;}
+  .abox li::before{content:"▸";position:absolute;left:2px;top:0;color:#7fc4e8;}
+  /* 联系 */
+  .footer{margin:72px 0 40px;background:#161c24;border:1px solid #232b36;border-radius:18px;padding:32px;text-align:center;}
+  .footer .ft{font-size:18px;font-weight:800;}
+  .footer .frow{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-top:14px;font-size:14px;color:#c6ccd4;}
+  .footer .frow a{color:#7fc4e8;text-decoration:none;}
+  .footer .note{margin-top:16px;font-size:12px;color:#6d7682;}
+  @media(max-width:640px){.hero{padding:48px 0 32px;}.hero .name{font-size:28px;letter-spacing:3px;}.sec{margin:48px 0 16px;}.wrap{padding:0 16px;}.proof{padding:20px 18px;}}
+</style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="name">张畅</div>
+    <div class="role">短视频剪辑师 · 拍剪一体</div>
+    <div class="slogan">让每一帧都有目的——剪辑节奏、视觉包装与数据验证的完整闭环。<br>2025 年 10 月至今 · 账号独立运营 · 148+ 条成片 · 12 条万赞作品 · 单条最高 116.9W 播放</div>
+    <div class="contact">
+      <span>📞 198 0464 3113</span><span>✉️ 19804643113@163.com</span><span>📍 北京 · 2026 年 9 月中旬可到岗</span>
+    </div>
+    <a class="btn" href="#works">观看我的作品 ↓</a>
+    <a class="btn ghost" href="https://v.douyin.com/Ze4rZgG6IMs/" target="_blank" rel="noopener">抖音主页 ↗</a>
+    <div class="search">若链接失效，可在抖音搜索：@HenryKitty_张函瑞</div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- 数据概览 -->
+    <div class="sec">
+      <span class="no">01 · DATA</span>
+      <h2>数据概览</h2>
+      <div class="desc">数据来自抖音创作者中心后台，可现场打开账号核对（截图日期 2026-09-07）。</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">148<small>+</small></div><div class="l">累计发布成片（抖音）</div></div>
+      <div class="stat"><div class="n">12<small> 条</small></div><div class="l">万赞以上作品</div></div>
+      <div class="stat"><div class="n">116.9<small>W</small></div><div class="l">单条最高播放</div></div>
+      <div class="stat"><div class="n">7.3<small>W</small></div><div class="l">单条最高点赞</div></div>
+      <div class="stat"><div class="n">27.85<small>%</small></div><div class="l">最高封面点击率</div></div>
+      <div class="stat"><div class="n">1082<small>+</small></div><div class="l">单条最高吸粉</div></div>
+    </div>
+
+    <!-- 视频作品 -->
+    <div class="sec" id="works">
+      <span class="no">02 · WORKS</span>
+      <h2>剪辑作品展示</h2>
+      <div class="desc">精选 9 条不同风格的成片，覆盖节奏卡点、舞台实录、视觉包装与长片叙事，可直接点击播放。</div>
+    </div>
+
+    <div class="group">
+      <div class="gt">节奏卡点 · 燃向混剪<span>V 1-3</span></div>
+      <div class="videos">
+        <div class="vcard">
+          <video controls preload="metadata" playsinline src="videos/帅是一种感觉.mp4"></video>
+          <div class="info">
+            <div class="t">《帅是一种感觉》</div>
+            <div class="tags"><span class="tag">卡点混剪</span><span class="tag">变速对齐</span><span class="tag">燃向</span></div>
+            <div class="d">重音级卡点与变速切镜，前 3 秒钩子式开篇，情绪逐级推高。</div>
+          </div>
+        </div>
+        <div class="vcard">
+          <video controls preload="metadata" playsinline src="videos/satisfaction.mp4"></video>
+          <div class="info">
+            <div class="t">《Satisfaction》</div>
+            <div class="tags"><span class="tag">节奏编排</span><span class="tag">情绪递进</span></div>
+            <div class="d">快节奏音乐与镜头频率同步设计，视觉节奏随音乐段落变化。</div>
+          </div>
+        </div>
+        <div class="vcard">
+          <video controls preload="metadata" playsinline src="videos/itsme.mp4"></video>
+          <div class="info">
+            <div class="t">《It's Me》</div>
+            <div class="tags"><span class="tag">快剪</span><span class="tag">多机位</span><span class="tag">转场</span></div>
+            <div class="d">多素材快剪，匹配剪辑与动作衔接，密度高但不失节奏呼吸感。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="gt">舞台实录 · 情绪叙事<span>V 4-7</span></div>
+      <div class="videos">
+        <div class="vcard">
+          <video controls preload="metadata" playsinline src="videos/babydontcry.mp4"></video>
+          <div class="info">
+            <div class="t">《Baby Don't Cry》</div>
+            <div class="tags"><span class="tag">舞台实录</span><span class="tag">歌词意境</span><span class="tag">情绪线</span></div>
+            <div class="d">实录重编，歌词意象与画面情绪对应，氛围统一调色。</div>
+          </div>
+        </div>
+        <div class="vcard">
+          <video controls preload="metadata" playsinline src="videos/墙角开了一朵小花.mp4"></video>
+          <div class="info">
+            <div class="t">《墙角开了一朵小花》</div>
+            <div class="tags"><span class="tag">抒情向</span><span class="tag">镜头语言</span><span class="tag">柔光调色</span></div>
+            <div class="d">抒情节奏，细节镜头串联叙事，柔光与低饱和统一质感。</div>
+          </div>
+        </div>
+        <div class="vcard">
+          <video controls preload="metadata" playsinline src="videos/神像.mp4"></video>
+          <div class="info">
+            <div class="t">《神像》</div>
+            <div class="tags"><span class="tag">氛围向</span><span class="tag">特效包装</span><span class="tag">光影</span></div>
+            <div class="d">光影质感营造氛围，叠加特效包装强化视觉冲击。</div>
+          </div>
+        </div>
+        <div class="vcard">
+          <video controls preload="metadata" playsinline src="videos/眼睛条.mp4"></video>
+          <div class="info">
+            <div class="t">《眼睛条》</div>
+            <div class="tags"><span class="tag">快剪实验</span><span class="tag">视觉节奏</span></div>
+            <div class="d">短平快剪辑实验，镜头切换频率与节拍严格对齐。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="gt">视觉包装 · 片头设计<span>V 8</span></div>
+      <div class="videos">
+        <div class="vcard">
+          <video controls preload="metadata" playsinline src="videos/BGGGintro.mp4"></video>
+          <div class="info">
+            <div class="t">《BGGG Intro》</div>
+            <div class="tags"><span class="tag">AE 动效</span><span class="tag">片头包装</span><span class="tag">音画同步</span></div>
+            <div class="d">AE 动效片头：图形运动与音效点对点同步，完成品牌化视觉包装。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="gt">成长叙事 · 纪念长片<span>V 9</span></div>
+      <div class="videos">
+        <div class="vcard wide">
+          <video controls preload="metadata" playsinline src="videos/盛夏光年.mp4"></video>
+          <div class="info">
+            <div class="t">《盛夏光年》· 成长向纪念长片</div>
+            <div class="tags"><span class="tag">长片叙事</span><span class="tag">多素材</span><span class="tag">情绪弧线</span></div>
+            <div class="d">跨时间线多素材重组，完整叙事结构与情绪弧线编排，体现长片成片的统筹与审美能力。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 运营成果 -->
+    <div class="sec">
+      <span class="no">03 · PROOF</span>
+      <h2>运营成果 · 数据验证</h2>
+      <div class="desc">用数据说话：以封面点击率、完播率、跳出率、吸粉量为依据，反哺选题与剪辑。</div>
+    </div>
+    <div class="proof">
+      <div class="pt">2025 年 10 月至今 · 从 0 跑通内容方法论</div>
+      <p>独立运营抖音、小红书、快手等多平台人物向账号，统筹选题、剪辑、发布、复盘全流程。2025 年 10 月至今累计发布 <b>148+</b> 条成片，其中<b>万赞以上作品 12 条</b>，单条最高播放 <b>116.9W</b>、最高点赞 <b>7.3W</b>。</p>
+      <p>通过封面 A/B 测试与开篇钩子优化，将最高封面点击率做到 <b>27.85%</b>；以数据复盘迭代选题与风格，单条最高吸粉 <b>1082</b>，搭建了可复用的涨粉与内容 SOP。</p>
+      <div class="kv">
+        <span>作品总数 <b>148+</b></span><span>万赞作品 <b>12 条</b></span><span>最高播放 <b>116.9W</b></span><span>最高点赞 <b>7.3W</b></span><span>最高封面点击率 <b>27.85%</b></span><span>最高单条吸粉 <b>1082</b></span>
+      </div>
+      <div class="shots">
+        <figure><img src="images/dashuju.png" alt="抖音创作者中心后台数据截图"><figcaption>抖音创作者中心 · 内容管理后台实录（作品 148 · 合集 3 · 置顶作品数据，2026-09-07）</figcaption></figure>
+      </div>
+    </div>
+
+    <!-- 能力清单 -->
+    <div class="sec">
+      <span class="no">04 · SKILLS</span>
+      <h2>能力清单</h2>
+    </div>
+    <div class="skills">
+      <div class="skill">
+        <div class="st">✂️ 剪辑包装</div>
+        <div class="sd">剪映专业版：日均 2~3 条成片，卡点 / 字幕 / 调色全流程，累计 148+ 条；AE：片头动效与转场特效包装。擅长节奏控制、情绪叙事、封面设计。</div>
+      </div>
+      <div class="skill">
+        <div class="st">🎥 实拍能力</div>
+        <div class="sd">3 年人像 / 舞台视频实拍，精通布光构图、多角度运镜与动态跟拍，实拍 + 剪辑一站式交付。</div>
+      </div>
+      <div class="skill">
+        <div class="st">📈 数据运营</div>
+        <div class="sd">独立运营抖音 / 小红书 / 快手多平台账号，以封面点击率、完播率、2 秒跳出率、吸粉量为依据反哺选题与剪辑，跑通「选题—发布—复盘」闭环。</div>
+      </div>
+      <div class="skill">
+        <div class="st">🧭 全流程统筹</div>
+        <div class="sd">策划—拍摄—剪辑—发布—复盘全链路独立完成；多项目并行交付；硕士学历 + 学生会执行主席经历，学习与统筹能力经过验证。</div>
+      </div>
+    </div>
+
+    <!-- 关于我 -->
+    <div class="sec">
+      <span class="no">05 · ABOUT</span>
+      <h2>关于我</h2>
+    </div>
+    <div class="about">
+      <div class="main">
+        <p><b>个人简介</b>：硕士在读期间系统投入短视频创作，2025 年 10 月至今独立运营人物向账号，跑通「策划—拍摄—剪辑—运营」全流程；3 年人像 / 舞蹈实拍经验。目标加入商业化内容团队，把已验证的爆款方法论规模化复用，用内容为品牌与账号持续创造流量。</p>
+      </div>
+      <div class="abox">
+        <div class="at">教育背景</div>
+        <div class="row"><b>山西农业大学 · 作物学</b><span>硕士 2023-2026</span></div>
+        <div class="note">在读期间系统自学视频剪辑与账号运营，完成 2025 年 10 月至今的商业向实践，从 0 到爆款方法论完整跑通</div>
+        <div class="row"><b>吉林农业大学 · 农学</b><span>本科 2019-2023</span></div>
+      </div>
+      <div class="abox">
+        <div class="at">校园经历</div>
+        <ul>
+          <li>曾任<b>学生会执行主席、班长、辩论协会会长</b></li>
+          <li>统筹多场校级活动组织与多任务协调，具备团队管理能力</li>
+          <li>个人及集体多次获省市级荣誉</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 联系 -->
+    <div class="footer">
+      <div class="ft">期待与您聊聊内容这件事</div>
+      <div class="frow"><span>张畅 · 短视频剪辑师（拍剪一体）</span><span>📞 198 0464 3113</span><span>✉️ 19804643113@163.com</span><span>📍 北京 · 2026 年 9 月中旬可到岗</span></div>
+      <div class="frow"><span>抖音：@HenryKitty_张函瑞（<a href="https://v.douyin.com/Ze4rZgG6IMs/" target="_blank" rel="noopener">主页链接 ↗</a> / 抖音搜索可直达）</span><span>简历：随附</span></div>
+      <div class="note">页面内视频为本地内嵌播放（H.264）；数据截图来自抖音创作者中心后台（2026-09-07）。线上投递时请将 videos/ 目录一并上传托管。</div>
+    </div>
+
+  </div>
+</body>
+</html>
