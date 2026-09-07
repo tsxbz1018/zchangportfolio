@@ -111,6 +111,24 @@
   .btn{transition:transform .2s ease,box-shadow .2s ease;}
   .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(127,196,232,.35);}
   .btn.ghost:hover{box-shadow:0 8px 20px rgba(127,196,232,.18);}
+
+/* ===== 摄影翻页相册 ===== */
+.gal-wrap{position:relative;margin:6px 0 4px;}
+.gal{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 12px 24px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0));scrollbar-width:none;-ms-overflow-style:none;}
+.gal::-webkit-scrollbar{display:none;}
+.gitem{flex:0 0 auto;scroll-snap-align:center;position:relative;border-radius:14px;overflow:hidden;cursor:zoom-in;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .35s ease,box-shadow .35s ease;border:1px solid rgba(255,255,255,.07);}
+.gitem img{display:block;height:360px;width:auto;max-width:min(72vw,600px);object-fit:cover;}
+.gitem:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 22px 50px rgba(0,0,0,.6);border-color:rgba(255,255,255,.22);}
+.gtag{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-size:12px;letter-spacing:.4px;color:#e9e9f2;background:linear-gradient(transparent,rgba(5,5,10,.85));}
+.gal-btn{position:absolute;top:44%;z-index:6;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(12,12,20,.62);color:#fff;font-size:22px;line-height:1;cursor:pointer;backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:transform .2s ease,background .2s ease;box-shadow:0 6px 18px rgba(0,0,0,.4);}
+.gal-btn:hover{background:rgba(255,255,255,.22);transform:scale(1.08);}
+.gal-btn.prev{left:2px;}
+.gal-btn.next{right:2px;}
+@media (max-width:640px){.gitem img{height:300px;max-width:86vw;}}
+/* ===== 灯箱 ===== */
+#lb{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(4,4,10,.93);cursor:zoom-out;animation:lbIn .25s ease;}
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+#lbimg{max-width:94vw;max-height:92vh;border-radius:10px;box-shadow:0 30px 90px rgba(0,0,0,.7);}
 </style>
 </head>
 <body>
@@ -155,69 +173,62 @@
     <div class="group">
       <div class="gt">节奏卡点 · 快剪混剪<span>V 1-3</span></div>
       <div class="videos">
-        <div class="vcard v34">
-          <video controls preload="metadata" playsinline src="videos/satisfaction.mp4"></video>
-          <div class="info">
-            <div class="t">《Satisfaction》</div>
-            <div class="tags"><span class="tag">节奏编排</span><span class="tag">情绪递进</span></div>
-            <div class="d">快节奏音乐与镜头频率同步设计，视觉节奏随音乐段落变化。</div>
-          </div>
-        </div>
-        <div class="vcard v9">
-          <video controls preload="metadata" playsinline src="videos/itsme.mp4"></video>
-          <div class="info">
-            <div class="t">《It's Me》</div>
-            <div class="tags"><span class="tag">快剪</span><span class="tag">多机位</span><span class="tag">转场</span></div>
-            <div class="d">多素材快剪，匹配剪辑与动作衔接，密度高但不失节奏呼吸感。</div>
-          </div>
-        </div>
-        <div class="vcard h16">
+<div class="vcard h16">
           <video controls preload="metadata" playsinline src="videos/眼睛条.mp4"></video>
           <div class="info">
             <div class="t">《眼睛条》</div>
             <div class="tags"><span class="tag">快剪实验</span><span class="tag">视觉节奏</span></div>
             <div class="d">短平快剪辑实验，镜头切换频率与节拍严格对齐。</div>
           </div>
-        </div>
-      </div>
+        </div><div class="vcard v34">
+          <video controls preload="metadata" playsinline src="videos/satisfaction.mp4"></video>
+          <div class="info">
+            <div class="t">《Satisfaction》</div>
+            <div class="tags"><span class="tag">节奏编排</span><span class="tag">情绪递进</span></div>
+            <div class="d">快节奏音乐与镜头频率同步设计，视觉节奏随音乐段落变化。</div>
+          </div>
+        </div><div class="vcard v9">
+          <video controls preload="metadata" playsinline src="videos/itsme.mp4"></video>
+          <div class="info">
+            <div class="t">《It's Me》</div>
+            <div class="tags"><span class="tag">快剪</span><span class="tag">多机位</span><span class="tag">转场</span></div>
+            <div class="d">多素材快剪，匹配剪辑与动作衔接，密度高但不失节奏呼吸感。</div>
+          </div>
+        </div>      </div>
     </div>
 
     <div class="group">
       <div class="gt">舞台实录 · 燃向与情绪<span>V 4-7</span></div>
       <div class="videos">
-        <div class="vcard h16">
+<div class="vcard h16">
           <video controls preload="metadata" playsinline src="videos/帅是一种感觉.mp4"></video>
           <div class="info">
             <div class="t">《帅是一种感觉》</div>
             <div class="tags"><span class="tag">卡点混剪</span><span class="tag">变速对齐</span><span class="tag">燃向</span></div>
             <div class="d">重音级卡点与变速切镜，前 3 秒钩子式开篇，情绪逐级推高。</div>
           </div>
-        </div>
-        <div class="vcard v9">
-          <video controls preload="metadata" playsinline src="videos/babydontcry.mp4"></video>
-          <div class="info">
-            <div class="t">《Baby Don't Cry》</div>
-            <div class="tags"><span class="tag">舞台实录</span><span class="tag">歌词意境</span><span class="tag">情绪线</span></div>
-            <div class="d">实录重编，歌词意象与画面情绪对应，氛围统一调色。</div>
-          </div>
-        </div>
-        <div class="vcard h16">
+        </div><div class="vcard h16">
           <video controls preload="metadata" playsinline src="videos/墙角开了一朵小花.mp4"></video>
           <div class="info">
             <div class="t">《墙角开了一朵小花》</div>
             <div class="tags"><span class="tag">抒情向</span><span class="tag">镜头语言</span><span class="tag">柔光调色</span></div>
             <div class="d">抒情节奏，细节镜头串联叙事，柔光与低饱和统一质感。</div>
           </div>
-        </div>
-        <div class="vcard h16">
+        </div><div class="vcard h16">
           <video controls preload="metadata" playsinline src="videos/神像.mp4"></video>
           <div class="info">
             <div class="t">《神像》</div>
             <div class="tags"><span class="tag">氛围向</span><span class="tag">特效包装</span><span class="tag">光影</span></div>
             <div class="d">光影质感营造氛围，叠加特效包装强化视觉冲击。</div>
           </div>
-        </div>
-      </div>
+        </div><div class="vcard v9">
+          <video controls preload="metadata" playsinline src="videos/babydontcry.mp4"></video>
+          <div class="info">
+            <div class="t">《Baby Don't Cry》</div>
+            <div class="tags"><span class="tag">舞台实录</span><span class="tag">歌词意境</span><span class="tag">情绪线</span></div>
+            <div class="d">实录重编，歌词意象与画面情绪对应，氛围统一调色。</div>
+          </div>
+        </div>      </div>
     </div>
 
     <div class="group">
@@ -252,31 +263,29 @@
     <div class="sec">
       <span class="no">03 · PHOTOGRAPHY</span>
       <h2>摄影作品</h2>
-      <div class="desc">3 年人像 / 舞台实拍经验，独立完成布光、构图与后期；人像、夜景、花海、舞台多场景实拍，与剪辑能力形成拍剪一体闭环。</div>
+      <div class="desc">60+ 张人像 / 舞台实拍作品：独立完成布光、构图与后期，覆盖户外清新、主题造型、演唱会舞台三大类，横向翻页浏览，点击可放大查看。</div>
       <div class="group">
-        <div class="gt">户外人像 · 写真集</div>
-        <div class="shots">
-          <div class="shot w"><img src="photos/photo-1.jpg" alt="春日野餐户外人像写真"><div class="t"><b>春日野餐 · 户外人像</b>外景布光与道具场景设计</div></div>
-          <div class="shot w"><img src="photos/photo-2.jpg" alt="生日派对主题人像写真"><div class="t"><b>生日派对 · 主题写真</b>游乐园实景与情绪抓拍</div></div>
-          <div class="shot w"><img src="photos/photo-3.jpg" alt="校园清新人像写真"><div class="t"><b>校园清新 · 人像写真</b>树影光影与环境融合</div></div>
-          <div class="shot w"><img src="photos/photo-4.jpg" alt="花树与雪双场景人像写真"><div class="t"><b>花树与雪 · 双场景写真</b>花季与雪景双主题拍摄</div></div>
+        <div class="gt">舞台实拍 · 演唱会现场<span>16 张</span></div>
+        <div class="gal-wrap">
+          <button class="gal-btn prev" onclick="galScroll('gal-stage',-1)" aria-label="上一页">‹</button>
+          <div class="gal" id="gal-stage"><div class="gitem" onclick="openLightbox('photos/photo-1.jpg')"><img src="photos/photo-1.jpg" alt="演唱会舞台 · 实拍 1" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-2.jpg')"><img src="photos/photo-2.jpg" alt="演唱会舞台 · 实拍 2" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-3.jpg')"><img src="photos/photo-3.jpg" alt="演唱会舞台 · 实拍 3" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-4.jpg')"><img src="photos/photo-4.jpg" alt="演唱会舞台 · 实拍 4" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-5.jpg')"><img src="photos/photo-5.jpg" alt="演唱会舞台 · 实拍 5" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-6.jpg')"><img src="photos/photo-6.jpg" alt="演唱会舞台 · 实拍 6" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-7.jpg')"><img src="photos/photo-7.jpg" alt="演唱会舞台 · 实拍 7" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-8.jpg')"><img src="photos/photo-8.jpg" alt="演唱会舞台 · 实拍 8" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-9.jpg')"><img src="photos/photo-9.jpg" alt="演唱会舞台 · 实拍 9" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-10.jpg')"><img src="photos/photo-10.jpg" alt="演唱会舞台 · 实拍 10" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-11.jpg')"><img src="photos/photo-11.jpg" alt="演唱会舞台 · 实拍 11" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-12.jpg')"><img src="photos/photo-12.jpg" alt="演唱会舞台 · 实拍 12" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-13.jpg')"><img src="photos/photo-13.jpg" alt="演唱会舞台 · 实拍 13" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-14.jpg')"><img src="photos/photo-14.jpg" alt="演唱会舞台 · 实拍 14" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-15.jpg')"><img src="photos/photo-15.jpg" alt="演唱会舞台 · 实拍 15" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div><div class="gitem" onclick="openLightbox('photos/photo-16.jpg')"><img src="photos/photo-16.jpg" alt="演唱会舞台 · 实拍 16" loading="lazy"><div class="gtag">现场记录 · 作品由本人拍摄</div></div></div>
+          <button class="gal-btn next" onclick="galScroll('gal-stage',1)" aria-label="下一页">›</button>
         </div>
       </div>
       <div class="group">
-        <div class="gt">多场景人像 · 夜景与花海</div>
-        <div class="shots">
-          <div class="shot w"><img src="photos/photo-5.jpg" alt="JK制服双场景人像写真"><div class="t"><b>JK 制服 · 双场景写真</b>公园与室内 · 同套造型记录</div></div>
-          <div class="shot v"><img src="photos/photo-7.jpg" alt="郁金香花田春日人像"><div class="t"><b>郁金香花田 · 春日人像</b>花海色彩与人物融合</div></div>
-          <div class="shot v"><img src="photos/photo-8.jpg" alt="古建夜景氛围人像"><div class="t"><b>古建夜景 · 氛围人像</b>夜景人像 · 暖光氛围</div></div>
-          <div class="shot v"><img src="photos/photo-9.jpg" alt="城市夜景地标人像"><div class="t"><b>城市夜景 · 地标人像</b>地标夜景 · 城市光斑</div></div>
-          <div class="shot v"><img src="photos/photo-10.jpg" alt="鸢尾花海户外人像"><div class="t"><b>鸢尾花海 · 户外人像</b>花田取景与低机位构图</div></div>
+        <div class="gt">户外清新 · 人像写真<span>24 张</span></div>
+        <div class="gal-wrap">
+          <button class="gal-btn prev" onclick="galScroll('gal-outdoor',-1)" aria-label="上一页">‹</button>
+          <div class="gal" id="gal-outdoor"><div class="gitem" onclick="openLightbox('photos/photo-17.jpg')"><img src="photos/photo-17.jpg" alt="户外人像 · 清新写真 17" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-18.jpg')"><img src="photos/photo-18.jpg" alt="户外人像 · 清新写真 18" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-19.jpg')"><img src="photos/photo-19.jpg" alt="户外人像 · 清新写真 19" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-20.jpg')"><img src="photos/photo-20.jpg" alt="户外人像 · 清新写真 20" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-21.jpg')"><img src="photos/photo-21.jpg" alt="户外人像 · 清新写真 21" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-22.jpg')"><img src="photos/photo-22.jpg" alt="户外人像 · 清新写真 22" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-23.jpg')"><img src="photos/photo-23.jpg" alt="户外人像 · 清新写真 23" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-24.jpg')"><img src="photos/photo-24.jpg" alt="户外人像 · 清新写真 24" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-25.jpg')"><img src="photos/photo-25.jpg" alt="户外人像 · 清新写真 25" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-26.jpg')"><img src="photos/photo-26.jpg" alt="户外人像 · 清新写真 26" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-27.jpg')"><img src="photos/photo-27.jpg" alt="户外人像 · 清新写真 27" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-28.jpg')"><img src="photos/photo-28.jpg" alt="户外人像 · 清新写真 28" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-29.jpg')"><img src="photos/photo-29.jpg" alt="户外人像 · 清新写真 29" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-30.jpg')"><img src="photos/photo-30.jpg" alt="户外人像 · 清新写真 30" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-31.jpg')"><img src="photos/photo-31.jpg" alt="户外人像 · 清新写真 31" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-32.jpg')"><img src="photos/photo-32.jpg" alt="户外人像 · 清新写真 32" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-33.jpg')"><img src="photos/photo-33.jpg" alt="户外人像 · 清新写真 33" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-34.jpg')"><img src="photos/photo-34.jpg" alt="户外人像 · 清新写真 34" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-35.jpg')"><img src="photos/photo-35.jpg" alt="户外人像 · 清新写真 35" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-36.jpg')"><img src="photos/photo-36.jpg" alt="户外人像 · 清新写真 36" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-37.jpg')"><img src="photos/photo-37.jpg" alt="户外人像 · 清新写真 37" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-38.jpg')"><img src="photos/photo-38.jpg" alt="户外人像 · 清新写真 38" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-39.jpg')"><img src="photos/photo-39.jpg" alt="户外人像 · 清新写真 39" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-40.jpg')"><img src="photos/photo-40.jpg" alt="户外人像 · 清新写真 40" loading="lazy"><div class="gtag">自然光拍摄 · 场景记录</div></div></div>
+          <button class="gal-btn next" onclick="galScroll('gal-outdoor',1)" aria-label="下一页">›</button>
         </div>
       </div>
       <div class="group">
-        <div class="gt">舞台实拍 · 演唱会现场</div>
-        <div class="shots">
-          <div class="shot v"><img src="photos/photo-11.jpg" alt="演唱会舞台实拍组图"><div class="t"><b>演唱会舞台 · 实拍组图</b>现场多机位记录 · 作品由本人拍摄</div></div>
-          <div class="shot v"><img src="photos/photo-14.jpg" alt="演唱会舞台四宫格"><div class="t"><b>演唱会舞台 · 四宫格</b>现场舞台 · 多角度记录 · 作品由本人拍摄</div></div>
+        <div class="gt">主题造型 · 人像写真<span>24 张</span></div>
+        <div class="gal-wrap">
+          <button class="gal-btn prev" onclick="galScroll('gal-theme',-1)" aria-label="上一页">‹</button>
+          <div class="gal" id="gal-theme"><div class="gitem" onclick="openLightbox('photos/photo-41.jpg')"><img src="photos/photo-41.jpg" alt="主题造型 · 人像写真 41" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-42.jpg')"><img src="photos/photo-42.jpg" alt="主题造型 · 人像写真 42" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-43.jpg')"><img src="photos/photo-43.jpg" alt="主题造型 · 人像写真 43" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-44.jpg')"><img src="photos/photo-44.jpg" alt="主题造型 · 人像写真 44" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-45.jpg')"><img src="photos/photo-45.jpg" alt="主题造型 · 人像写真 45" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-46.jpg')"><img src="photos/photo-46.jpg" alt="主题造型 · 人像写真 46" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-47.jpg')"><img src="photos/photo-47.jpg" alt="主题造型 · 人像写真 47" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-48.jpg')"><img src="photos/photo-48.jpg" alt="主题造型 · 人像写真 48" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-49.jpg')"><img src="photos/photo-49.jpg" alt="主题造型 · 人像写真 49" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-50.jpg')"><img src="photos/photo-50.jpg" alt="主题造型 · 人像写真 50" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-51.jpg')"><img src="photos/photo-51.jpg" alt="主题造型 · 人像写真 51" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-52.jpg')"><img src="photos/photo-52.jpg" alt="主题造型 · 人像写真 52" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-53.jpg')"><img src="photos/photo-53.jpg" alt="主题造型 · 人像写真 53" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-54.jpg')"><img src="photos/photo-54.jpg" alt="主题造型 · 人像写真 54" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-55.jpg')"><img src="photos/photo-55.jpg" alt="主题造型 · 人像写真 55" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-56.jpg')"><img src="photos/photo-56.jpg" alt="主题造型 · 人像写真 56" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-57.jpg')"><img src="photos/photo-57.jpg" alt="主题造型 · 人像写真 57" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-58.jpg')"><img src="photos/photo-58.jpg" alt="主题造型 · 人像写真 58" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-59.jpg')"><img src="photos/photo-59.jpg" alt="主题造型 · 人像写真 59" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-60.jpg')"><img src="photos/photo-60.jpg" alt="主题造型 · 人像写真 60" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-61.jpg')"><img src="photos/photo-61.jpg" alt="主题造型 · 人像写真 61" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-62.jpg')"><img src="photos/photo-62.jpg" alt="主题造型 · 人像写真 62" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-63.jpg')"><img src="photos/photo-63.jpg" alt="主题造型 · 人像写真 63" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div><div class="gitem" onclick="openLightbox('photos/photo-64.jpg')"><img src="photos/photo-64.jpg" alt="主题造型 · 人像写真 64" loading="lazy"><div class="gtag">场景化造型 · 拍摄记录</div></div></div>
+          <button class="gal-btn next" onclick="galScroll('gal-theme',1)" aria-label="下一页">›</button>
         </div>
       </div>
     </div>
@@ -403,6 +412,91 @@
       nums.forEach(function(n){ io2.observe(n); });
     }
   }catch(e){ console.error(e); }
+})();
+</script>
+
+<!-- 灯箱 -->
+<div id="lb" role="dialog" aria-label="查看大图"><img id="lbimg" src="" alt="大图预览"></div>
+<script>
+(function(){
+  window.galScroll = function(id, dir){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.scrollBy({left: dir * el.clientWidth * 0.9, behavior:'smooth'});
+  };
+  window.openLightbox = function(src){
+    var m = document.getElementById('lb'), im = document.getElementById('lbimg');
+    if(!m || !im) return;
+    im.src = src;
+    m.style.display = 'flex';
+  };
+  var lb = document.getElementById('lb');
+  if(lb){ lb.addEventListener('click', function(){ lb.style.display = 'none'; }); }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ var m = document.getElementById('lb'); if(m) m.style.display = 'none'; }
+  });
+})();
+</script>
+
+<script>
+/* 相册自动播放：悬停/手动翻页暂停，移开恢复，循环滚动 */
+(function(){
+  var NAMES = ['gal-stage', 'gal-outdoor', 'gal-theme'];
+  var timers = {};
+  var rearmT = {};
+  function step(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var max = el.scrollWidth - el.clientWidth - 4;
+    if(max <= 0) return;
+    var next = el.scrollLeft + el.clientWidth * 0.92;
+    if(next >= max){ next = 0; }
+    el.scrollTo({left: next, behavior: 'smooth'});
+  }
+  function start(id, ms){
+    if(timers[id]) clearInterval(timers[id]);
+    timers[id] = setInterval(function(){ step(id); }, ms);
+  }
+  function stop(id){
+    if(timers[id]){ clearInterval(timers[id]); timers[id] = null; }
+  }
+  function rearm(id){
+    stop(id);
+    if(rearmT[id]) clearTimeout(rearmT[id]);
+    rearmT[id] = setTimeout(function(){
+      if(!document.hidden) start(id, 3600);
+    }, 4200);
+  }
+  var orig = window.galScroll;
+  window.galScroll = function(id, dir){
+    if(orig) orig(id, dir);
+    rearm(id);
+  };
+  function bind(){
+    NAMES.forEach(function(n){
+      var el = document.getElementById(n);
+      if(!el) return;
+      var wrap = el.closest('.gal-wrap');
+      if(wrap){
+        wrap.addEventListener('mouseenter', function(){ stop(n); });
+        wrap.addEventListener('mouseleave', function(){ start(n, 3600); });
+      }
+      el.addEventListener('touchstart', function(){ stop(n); }, {passive:true});
+      el.addEventListener('touchend', function(){
+        setTimeout(function(){ start(n, 3600); }, 2600);
+      }, {passive:true});
+    });
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){ NAMES.forEach(stop); }
+      else { NAMES.forEach(function(n){ start(n, 3600); }); }
+    });
+  }
+  try {
+    var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+    if(rm && rm.matches){ return; }
+    bind();
+    NAMES.forEach(function(n){ start(n, 3600); });
+  } catch(e){}
 })();
 </script>
 </body>
